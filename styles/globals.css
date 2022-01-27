@@ -1,16 +1,67 @@
-html,
+/* PLUGINS & NEXT ADJUSTMENTS START */
+/* Tailwind Plugin Base */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fix to next js issues on mobile view */
+@media screen and (max-width: 320px) {
+   #__next {
+      display: flex;
+      min-width: 100vw;
+   }
+}
+
+/* PLUGINS & NEXT ADJUSTMENTS END */
+
+
+/* FONTS START */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+.content {
+   font-family: 'Poppins', sans-serif;
+}
+
+/* FONTS END */
+
+/* GENERIC RULES START */
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+   color: #1B1B1B;
+   background: #FED785;
+   background: radial-gradient(circle, #FED785 0%, #eec263 100%);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* GENERIC RULES END */
+
+/* SPECIFIC PROPERTIES START */
+.foodpiccontainer::after {
+   content: ' ';
+   display: block;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 1;
+   opacity: 0.6;
+   border-radius: 12px;
+   background-image: url('/englishbf.jpg');
+   background-repeat: no-repeat;
+   background-position: 50% 0;
+   background-size: cover;
 }
 
-* {
-  box-sizing: border-box;
+.foodcardtext::before {
+   content: ' ';
+   display: block;
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   z-index: 1;
+   opacity: 0.4;
+   background-color: #1B1B1B;
 }
+
+/* SPECIFIC PROPERTIES END */
