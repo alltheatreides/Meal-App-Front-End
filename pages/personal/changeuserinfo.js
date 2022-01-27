@@ -1,6 +1,7 @@
 import axios from "axios";
 import { getCookie, setCookies } from "cookies-next";
 import { useEffect, useState } from "react";
+import PersonalMenu from "../../components/PersonalMenu";
 
 const ChangeUserInfo = () => {
 
@@ -15,7 +16,7 @@ const ChangeUserInfo = () => {
       //    setUsername(getCookie("mealAppUser"))
       // }
    }, []);
-   
+
 
    // Register function logic
    let handleSubmit = async (e) => {
@@ -79,39 +80,61 @@ const ChangeUserInfo = () => {
    };
 
    return (
-      <div>
-         <h1>Changez vos informations utilisateur</h1>
-         <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-            {/* <input
-               type="text"
-               value={username}
-               placeholder="Nouveau nom d'utilisateur"
-               onChange={(e) => setUsername(e.target.value)}
-            /> */}
-            <input
-               type="text"
-               value={email}
-               placeholder="Nouveau mail"
-               onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-               type="text"
-               value={password}
-               placeholder="Nouveau mot de passe"
-               onChange={(e) => setPassword(e.target.value)}
-            />
-            <input
-               type="text"
-               value={rpassword}
-               placeholder="Répétez le nouveau mot de passe"
-               onChange={(e) => setRpassword(e.target.value)}
-            />
+      <section className="flex flex-col gap-4 px-4 md:px-0">
+         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase mb-6 lg:mb-10">espace personnel</h1>
 
-            <button type="submit">Update</button>
+         <article className="flex flex-col lg:flex-row justify-between">
 
-            <div className="message">{message ? <p>{message}</p> : null}</div>
-         </form>
-      </div>
+            {/* LEFT SUBMENU START*/}
+            <PersonalMenu />
+            {/* LEFT SUBMENU END */}
+
+            <div className="lg:w-4/5 p-10 mt-4 lg:mt-0 mx-6 relative new-meal-form">
+
+               <h2 className="text-xl md:text-2xl lg:text-4xl uppercase font-light mb-4 md:mb-6 lg:mb-10">Changez vos informations utilisateur</h2>
+               
+               <form onSubmit={handleSubmit} className="flex flex-col md:w-3/6">
+                  {/* <input
+                  type="text"
+                  value={username}
+                  placeholder="Nouveau nom d'utilisateur"
+                  onChange={(e) => setUsername(e.target.value)}
+               /> */}
+                  <input
+                     type="text"
+                     value={email}
+                     placeholder="Nouveau mail"
+                     onChange={(e) => setEmail(e.target.value)}
+                     className="w-full p-2.5 mb-6"
+                  />
+                  <input
+                     type="text"
+                     value={password}
+                     placeholder="Nouveau mot de passe"
+                     onChange={(e) => setPassword(e.target.value)}
+                     className="w-full p-2.5 mb-6"
+                  />
+                  <input
+                     type="text"
+                     value={rpassword}
+                     placeholder="Répétez le nouveau mot de passe"
+                     onChange={(e) => setRpassword(e.target.value)}
+                     className="w-full p-2.5 mb-6"
+                  />
+
+                  <button 
+                     type="submit"
+                     className="text-theme-white bg-theme font-bold rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center uppercase self-start"
+                  >
+                     Mettre à jour
+                  </button>
+
+                  <div className="message">{message ? <p>{message}</p> : null}</div>
+               </form>
+            </div>
+
+         </article>
+      </section>
    );
 }
 

@@ -17,6 +17,7 @@ module.exports = {
       theme: '#1B1B1B',
       'theme-darker': '#30003F',
       'theme-yellow': '#FED785',
+      'theme-white': 'white',
     }
   },
   plugins: [],
