@@ -108,7 +108,7 @@ const Login = () => {
             {!getCookie("mealAppUser") ?
                (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-2 relative new-meal-form p-10">
-                     <label hmtlfor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Nom d'utilisateur</label>
+                     <label hmtlfor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Nom d&apos;utilisateur</label>
                      <input
                         type="text"
                         value={username}

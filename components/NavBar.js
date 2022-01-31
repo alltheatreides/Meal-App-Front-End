@@ -66,20 +66,20 @@ const NavBar = () => {
 
                className='md:flex gap-6 items-center whitespace-nowrap hidden'>
 
-               <Link href="/">Accueil</Link>
-               <Link href="/about">À propos</Link>
-               <Link href="/meals">Liste des plats</Link>
+               <Link href="/" passHref>Accueil</Link>
+               <Link href="/about" passHref>À propos</Link>
+               <Link href="/meals" passHref>Liste des plats</Link>
                {
                   (getCookie("mealAppUser") == "" || !checkCookies("mealAppUser")) &&
-                  <Link href="/login">Connexion</Link>
+                  <Link href="/login" passHref>Connexion</Link>
                }
                {
                   !checkCookies("mealAppUser") &&
-                  <Link href="/register">S'inscrire</Link>
+                  <Link href="/register" passHref>S&apos;inscrire</Link>
                }
                {
                   getCookie("mealAppUser") && getCookie("mealAppUser") != "" &&
-                  <Link href="/personal">Espace Personnel</Link>
+                  <Link href="/personal" passHref>Espace Personnel</Link>
                }
                {
                   (getCookie("mealAppUser") && getCookie("mealAppUser") != "") &&
