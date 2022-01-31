@@ -57,7 +57,7 @@ const MealsList = ({ meals }) => {
                   {
                      meals.map((meal, key) => (
                         <Link key={key} href={`/meals/${meal.title}`} passHref>
-                           <div key={key} className='min-h-[20rem] md:min-h-[20rem] lg:min-h-[30rem] h-full grid content-end relative overflow-hidden'>
+                           <div key={key} className=' lg:min-h-[20rem] h-full grid content-end relative overflow-hidden'>
                               <img
                                  src={`https://my-ez-meal.herokuapp.com/upload/images/${meal.image}`}
                                  alt={meal.title}
