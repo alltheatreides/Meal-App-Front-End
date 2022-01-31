@@ -44,8 +44,7 @@ const About = () => {
                   <article>
                      <h3 className="text-xl">Front End</h3>
                      <ul className="text-xl w-48 font-medium text-gray-900 bg-white rounded-lg border border-gray-200 mt-4 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                        <li className="py-2 px-4 w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">React</li>
-                        <li className="py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600">Next-JS</li>
+                        <li className="py-2 px-4 w-full rounded-t-lg border-b border-gray-200 dark:border-gray-600">Next-JS</li>
                         <li className="py-2 px-4 w-full border-b border-gray-200 dark:border-gray-600">Tailwind</li>
                         <li className="py-2 px-4 w-full border-b-lg border-gray-200 dark:border-gray-600">Framer Motion</li>
                      </ul>

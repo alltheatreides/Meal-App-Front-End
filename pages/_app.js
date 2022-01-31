@@ -6,9 +6,9 @@ import '../styles/globals.css'
 function MyApp({ Component, pageProps, router }) {
   return (
     <Layout>
-      <AnimatePresence>
+      {/* <AnimatePresence> */}
         <Component {...pageProps} key={router.route} />
-      </AnimatePresence>
+      {/* </AnimatePresence> */}
     </Layout>
   )
 }

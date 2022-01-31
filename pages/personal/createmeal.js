@@ -67,7 +67,7 @@ const CreateMeal = () => {
                <h2 className="text-xl md:text-2xl lg:text-4xl uppercase font-light mb-4 md:mb-6 lg:mb-10">Creer un nouveau plat</h2>
 
                <form onSubmit={handleSubmit} className="flex flex-col md:w-3/6">
-                  <label for="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Choisissez une catégorie de plat</label>
+                  <label hmtlfor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Choisissez une catégorie de plat</label>
                   <select
                      id="category"
                      onChange={(e) => changeCategory(e.target.value)}
@@ -81,6 +81,7 @@ const CreateMeal = () => {
                      <option value="Dîner">Dîner</option>
                   </select>
 
+                  <label hmtlfor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Nom du plat</label>
                   <input
                      type="text"
                      value={title}
@@ -88,6 +89,8 @@ const CreateMeal = () => {
                      onChange={(e) => setTitle(e.target.value)}
                      className="w-full p-2.5 mb-6"
                   />
+
+                  <label hmtlfor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Description du plat</label>
                   <textarea
                      type="text"
                      value={body}

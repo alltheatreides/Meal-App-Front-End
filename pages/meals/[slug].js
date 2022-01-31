@@ -39,6 +39,7 @@ const Details = ({ meal }) => {
    return (
       <div>
          <h1>Details page</h1>
+         <img src={`http://localhost/3WA FINAL/PHP REST API BACK/upload/images/${meal.image}`} alt="" />
          <h2>{meal.title}</h2>
          <p>{meal.body}</p>
          <p>{meal.author}</p>

@@ -22,17 +22,24 @@ export default function Home() {
         headers: { 'Content-Type': 'application/json' },
       });
 
-      // Async logic when data is received
-      async function populateDataArray() {
-        const meals = await response.data
-        setLoading(false)
-        setData(meals)
-        console.log(data)
-        // Get a random meal from the array for display
-        setRandomMealNumber(Math.floor(Math.random() * meals.length))
-        console.log(randomMealNumber)
-      }
-      populateDataArray()
+      // // Async logic when data is received
+      // async function populateDataArray() {
+      //   const meals = await response.data
+      //   setLoading(false)
+      //   setData(meals)
+      //   console.log(data)
+      //   // Get a random meal from the array for display
+      //   setRandomMealNumber(Math.floor(Math.random() * meals.length))
+      //   console.log(randomMealNumber)
+      // }
+      // populateDataArray()
+      const meals = await response.data
+      setLoading(false)
+      setData(meals)
+      // console.log(data)
+      // Get a random meal from the array for display
+      setRandomMealNumber(Math.floor(Math.random() * meals.length))
+      // console.log(randomMealNumber)
 
     } catch (e) {
       console.log(e)
@@ -89,10 +96,10 @@ export default function Home() {
     // hover: {
     //   rotate: 360,
     // }
-    open: { 
+    open: {
       rotate: 360,
     },
-    closed: { 
+    closed: {
       // rotate: 360,
     },
   }
@@ -118,7 +125,7 @@ export default function Home() {
         <article className='text-left px-4 md:px-0 grid gap-4 grid-cols-1 lg:grid-cols-2 mt-10 lg:mb-6'>
           {/* CALL TO ACTION START */}
           <div className='w-10/12 flex flex-col justify-between'>
-            <h1 className='text-5xl md:text-7xl lg:text-8xl font-bold uppercase mb-6 lg:mb-10'>PAS D’IDEE DE REPAS ?</h1>
+            <h1 className='text-5xl md:text-7xl lg:text-8xl font-bold uppercase mb-6 lg:mb-10'>PAS D’IDÉE DE REPAS ?</h1>
 
             <h2 className='text-2xl md:text-4xl lg:text-6xl uppercase font-light md:mb-6 lg:mb-10'>Choisissez au hasard ou selon votre humeur !</h2>
 
@@ -153,7 +160,12 @@ export default function Home() {
               ? <p>Loading...</p>
               : data !== null
                 ? (
-                  <div className='min-h-[20rem] md:min-h-[40rem] lg:min-h-full h-full grid content-end relative foodpiccontainer'>
+                  <div className='min-h-[20rem] md:min-h-[40rem] lg:min-h-full h-full grid content-end relative overflow-hidden'>
+                      <img
+                        src={`http://localhost/3WA FINAL/PHP REST API BACK/upload/images/${data[randomMealNumber].image}`}
+                        alt={data[randomMealNumber].title}
+                        className="absolute inset-0 -z-10 rounded-lg opacity-80 min-h-full"
+                      />
                     <Link href={`/meals/${data[randomMealNumber].title}`}>
                       <a className='relative foodcardtext text-theme-white px-6 py-10 md:py-20'>
                         <h5 className="mb-2 text-2xl font-bold uppercase">{data[randomMealNumber].title}</h5>
