@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { AnimatePresence, motion } from 'framer-motion';
 import Head from 'next/head'
+import { getCookie, setCookies } from "cookies-next";
 
 const Login = () => {
 
@@ -14,27 +15,6 @@ const Login = () => {
 
    // Next Page management
    const router = useRouter()
-
-   function setCookie(name, value, days = 60) {
-      var expires = "";
-      if (days) {
-         var date = new Date();
-         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-         expires = "; expires=" + date.toUTCString();
-      }
-      document.cookie = name + "=" + (value || "") + expires + "; path=/";
-   }
-
-   function getCookie(name) {
-      var nameEQ = name + "=";
-      var ca = document.cookie.split(';');
-      for (var i = 0; i < ca.length; i++) {
-         var c = ca[i];
-         while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-      }
-      return null;
-   }
 
    useEffect(() => {
       // console.log(getCookie('user'))
@@ -61,8 +41,8 @@ const Login = () => {
          if (res.status === 200) {
             setUsername("");
             setPassword("")
-            setCookie("mealAppUser", resJson.user_name, 60);
-            setCookie("mealAppHash", resJson.hash, 60);
+            setCookies("mealAppUser", resJson.user_name, 60);
+            setCookies("mealAppHash", resJson.hash, 60);
             router.push("/")
          } else {
             // console.log(resJson)
