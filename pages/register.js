@@ -86,7 +86,7 @@ const Register = () => {
             className="w-1/2 mx-auto">
             <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold uppercase mb-6 lg:mb-10'>Inscrivez vous</h1>
             <form onSubmit={handleSubmit} className="flex flex-col gap-2 relative new-meal-form p-10">
-               <label hmtlfor="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Nom d'utilisateur</label>
+               <label hmtlfor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Nom d&apos;utilisateur</label>
                <input
                   type="text"
                   value={username}
@@ -94,7 +94,7 @@ const Register = () => {
                   onChange={(e) => setUsername(e.target.value)}
                   className="w-full p-2.5 mb-6"
                />
-               <label hmtlfor="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Email</label>
+               <label hmtlfor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Email</label>
                <input
                   type="email"
                   value={email}
@@ -102,7 +102,7 @@ const Register = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full p-2.5 mb-6"
                />
-               <label hmtlfor="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Mot de passe</label>
+               <label hmtlfor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Mot de passe</label>
                <input
                   type="password"
                   value={password}
@@ -110,7 +110,7 @@ const Register = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full p-2.5 mb-6"
                />
-               <label hmtlfor="category" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Répétez le mot de passe</label>
+               <label hmtlfor="category" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Répétez le mot de passe</label>
                <input
                   type="password"
                   value={rpassword}
@@ -123,11 +123,11 @@ const Register = () => {
                   type="submit"
                   className="text-theme-white bg-theme font-bold rounded-lg text-sm sm:w-auto px-5 py-2.5 text-center uppercase self-start"
                >
-                  S'inscrire
+                  S&apos;inscrire
                </button>
 
                <div className="message">{message ? <p>{message}</p> : null}</div>
-               <div className="">{visible ? <Link href="/login"><a>Connectez vous</a></Link> : null}</div>
+               <div className="">{visible ? <Link href="/login" passHref><a>Connectez vous</a></Link> : null}</div>
             </form>
          </motion.section>
       </AnimatePresence>

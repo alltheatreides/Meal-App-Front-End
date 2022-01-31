@@ -115,9 +115,6 @@ export default function Home() {
         animate="visible"
         exit="exit"
       >
-        <Script>
-
-        </Script>
         <Head>
           <title>EZ Meal | Accueil</title>
           <meta name='keywords' content='Repas'></meta>

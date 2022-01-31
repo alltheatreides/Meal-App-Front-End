@@ -56,7 +56,7 @@ const MealsList = ({ meals }) => {
                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 h-full">
                   {
                      meals.map((meal, key) => (
-                        <Link key={key} href={`/meals/${meal.title}`}>
+                        <Link key={key} href={`/meals/${meal.title}`} passHref>
                            <div key={key} className='min-h-[20rem] md:min-h-[20rem] lg:min-h-[30rem] h-full grid content-end relative overflow-hidden'>
                               <img
                                  src={`https://my-ez-meal.herokuapp.com/upload/images/${meal.image}`}

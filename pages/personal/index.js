@@ -95,8 +95,7 @@ const Personal = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="px-4 md:px-0 mb-6"
-            className="flex flex-col gap-4 px-4 md:px-0"
+            className="flex flex-col gap-4 px-4 md:px-0 mb-6"
          >
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold uppercase mb-6 lg:mb-10">espace personnel</h1>
 
@@ -124,7 +123,7 @@ const Personal = () => {
                                  <p className="mb-3 font-normal">{meal.body.slice(0, 150)}...</p>
 
                                  <form onSubmit={postMealPicture}>
-                                    <label>Changer l'image</label>
+                                    <label>Changer l&apos;image</label>
                                     <input
                                        type="file"
                                        id="platimage" name={meal.title}
