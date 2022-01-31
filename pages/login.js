@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AnimatePresence, motion } from 'framer-motion';
 import Head from 'next/head'
 import { getCookie, setCookies } from "cookies-next";
+import axios from "axios";
 
 const Login = () => {
 
@@ -25,28 +26,40 @@ const Login = () => {
    let handleSubmit = async (e) => {
       e.preventDefault();
       try {
-         let res = await fetch("https://my-ez-meal.herokuapp.com/api/post/loginUser.php", {
-            method: "POST",
-            credentials: 'include',
-            mode: 'cors',
-            // headers: {
-            //    "Authorization": btoa(username + ":" + password)
-            // },
-            body: JSON.stringify({
-               username: username,
-               pwd: password,
-            }),
+         // let res = await fetch("https://my-ez-meal.herokuapp.com/api/post/loginUser.php", {
+         //    method: "POST",
+         //    credentials: 'include',
+         //    mode: 'cors',
+         //    // headers: {
+         //    //    "Authorization": btoa(username + ":" + password)
+         //    // },
+         //    body: JSON.stringify({
+         //       username: username,
+         //       pwd: password,
+         //    }),
+         // });
+         // let resJson = await res.json();
+         const data = {
+            username: username,
+            pwd: password,
+         }
+         const response = await axios.put('https://my-ez-meal.herokuapp.com/api/post/loginUser.php', data, {
+            headers: { 'Content-Type': 'application/json' },
+            withCredentials: true,
+            auth: {
+               username: getCookie("mealAppUser"),
+               password: getCookie("mealAppHash")
+            },
          });
-         let resJson = await res.json();
-         if (res.status === 200) {
+         if (response.status === 200) {
             setUsername("");
             setPassword("")
-            setCookies("mealAppUser", resJson.user_name, 60);
-            setCookies("mealAppHash", resJson.hash, 60);
+            setCookies("mealAppUser", response.user_name, 60);
+            setCookies("mealAppHash", response.hash, 60);
             router.push("/")
          } else {
             // console.log(resJson)
-            setMessage(resJson);
+            // setMessage(response);
          }
       } catch (err) {
          console.log(err);
