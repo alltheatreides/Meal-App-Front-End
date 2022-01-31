@@ -18,7 +18,7 @@ export default function Home() {
 
   let getMeals = async (e) => {
     try {
-      const response = await axios.get('http://localhost/3WA FINAL/PHP REST API BACK/api/post/readMeals.php', {
+      const response = await axios.get('https://my-ez-meal.herokuapp.com/api/post/readMeals.php', {
         headers: { 'Content-Type': 'application/json' },
       });
 
@@ -162,7 +162,7 @@ export default function Home() {
                 ? (
                   <div className='min-h-[20rem] md:min-h-[40rem] lg:min-h-full h-full grid content-end relative overflow-hidden'>
                       <img
-                        src={`http://localhost/3WA FINAL/PHP REST API BACK/upload/images/${data[randomMealNumber].image}`}
+                        src={`https://my-ez-meal.herokuapp.com/upload/images/${data[randomMealNumber].image}`}
                         alt={data[randomMealNumber].title}
                         className="absolute inset-0 -z-10 rounded-lg opacity-80 min-h-full"
                       />

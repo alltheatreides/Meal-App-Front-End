@@ -29,7 +29,7 @@ const ChangeUserInfo = () => {
             rPwd: rpassword,
          }
 
-         const response = await axios.put('http://localhost/3WA FINAL/PHP REST API BACK/api/post/updateUser.php', data, {
+         const response = await axios.put('https://my-ez-meal.herokuapp.com/api/post/updateUser.php', data, {
             headers: { 'Content-Type': 'application/json' },
             auth: {
                username: getCookie("mealAppUser"),
@@ -51,7 +51,7 @@ const ChangeUserInfo = () => {
          setMessage(err)
       }
       // try {
-      //    let res = await fetch("http://localhost/3WA FINAL/PHP REST API BACK/api/post/updateUser.php", {
+      //    let res = await fetch("https://my-ez-meal.herokuapp.com/api/post/updateUser.php", {
       //       method: "PUT",
       //       credentials: 'include',
       //       mode: 'cors',

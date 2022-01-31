@@ -30,7 +30,7 @@ const CreateMeal = () => {
             cookie: getCookie("mealAppHash"),
          }
 
-         const response = await axios.post('http://localhost/3WA FINAL/PHP REST API BACK/api/post/createMeal.php', data, {
+         const response = await axios.post('https://my-ez-meal.herokuapp.com/api/post/createMeal.php', data, {
             headers: { 'Content-Type': 'application/json' },
             auth: {
                username: getCookie("mealAppUser"),

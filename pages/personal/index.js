@@ -35,7 +35,7 @@ const Personal = () => {
    // GET
    async function getMealsByUser(e) {
       try {
-         const response = await axios.get('http://localhost/3WA FINAL/PHP REST API BACK/api/post/readMealsCreated.php', {
+         const response = await axios.get('https://my-ez-meal.herokuapp.com/api/post/readMealsCreated.php', {
             headers: { 'Content-Type': 'application/json' },
             auth: {
                username: getCookie("mealAppUser"),
@@ -64,7 +64,7 @@ const Personal = () => {
          formData.append("meal_name", e.target.platimage.name);
          formData.append("plat-image", selectedFile);
 
-         const response = await axios.post('http://localhost/3WA FINAL/PHP REST API BACK/api/post/uploadPicture.php', formData, {
+         const response = await axios.post('https://my-ez-meal.herokuapp.com/api/post/uploadPicture.php', formData, {
             headers: { 'Content-Type': 'multipart/form-data' },
             auth: {
                username: getCookie("mealAppUser"),
@@ -113,7 +113,7 @@ const Personal = () => {
                         : data.map((meal, key) => (
                            <li key={key} className='min-h-[20rem] md:min-h-[20rem] lg:min-h-[30rem] h-full mb-4 grid content-end relative overflow-hidden'>
                               <img
-                                 src={`http://localhost/3WA FINAL/PHP REST API BACK/upload/images/${meal.image}`}
+                                 src={`https://my-ez-meal.herokuapp.com/upload/images/${meal.image}`}
                                  alt={meal.title}
                                  className="absolute inset-0 -z-10 rounded-lg opacity-80 min-h-full"
                               />

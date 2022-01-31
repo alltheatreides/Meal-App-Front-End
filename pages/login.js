@@ -45,7 +45,7 @@ const Login = () => {
    let handleSubmit = async (e) => {
       e.preventDefault();
       try {
-         let res = await fetch("http://localhost/3WA FINAL/PHP REST API BACK/api/post/loginUser.php", {
+         let res = await fetch("https://my-ez-meal.herokuapp.com/api/post/loginUser.php", {
             method: "POST",
             credentials: 'include',
             mode: 'cors',

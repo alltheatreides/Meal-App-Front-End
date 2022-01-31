@@ -1,6 +1,6 @@
 // Generate route path information
 export const getStaticPaths = async () => {
-   const res = await fetch('http://localhost/3WA FINAL/PHP REST API BACK/api/post/readMeals.php');
+   const res = await fetch('https://my-ez-meal.herokuapp.com/api/post/readMeals.php');
    const data = await res.json();
 
    // map data to an array of path objects with params (slug)
@@ -19,7 +19,7 @@ export const getStaticPaths = async () => {
 // TODO configurer le back propement en GET request pour plus de rapidité
 export const getStaticProps = async (context) => {
    const slug = context.params.slug;
-   const res = await fetch('http://localhost/3WA FINAL/PHP REST API BACK/api/post/readSingleMeal.php', {
+   const res = await fetch('https://my-ez-meal.herokuapp.com/api/post/readSingleMeal.php', {
       method: "POST",
       credentials: 'include',
       mode: 'cors',
@@ -39,7 +39,7 @@ const Details = ({ meal }) => {
    return (
       <div>
          <h1>Details page</h1>
-         <img src={`http://localhost/3WA FINAL/PHP REST API BACK/upload/images/${meal.image}`} alt="" />
+         <img src={`https://my-ez-meal.herokuapp.com/upload/images/${meal.image}`} alt="" />
          <h2>{meal.title}</h2>
          <p>{meal.body}</p>
          <p>{meal.author}</p>

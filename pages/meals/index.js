@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 
 export const getStaticProps = async () => {
-   const res = await fetch("http://localhost/3WA FINAL/PHP REST API BACK/api/post/readMeals.php");
+   const res = await fetch("https://my-ez-meal.herokuapp.com/api/post/readMeals.php");
 
    const data = await res.json();
 
@@ -59,7 +59,7 @@ const MealsList = ({ meals }) => {
                         <Link key={key} href={`/meals/${meal.title}`}>
                            <div key={key} className='min-h-[20rem] md:min-h-[20rem] lg:min-h-[30rem] h-full grid content-end relative overflow-hidden'>
                               <img
-                                 src={`http://localhost/3WA FINAL/PHP REST API BACK/upload/images/${meal.image}`}
+                                 src={`https://my-ez-meal.herokuapp.com/upload/images/${meal.image}`}
                                  alt={meal.title}
                                  className="absolute inset-0 -z-10 rounded-lg opacity-80"
                               />

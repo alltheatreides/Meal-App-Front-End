@@ -26,7 +26,7 @@ const Register = () => {
    let handleSubmit = async (e) => {
       e.preventDefault();
       try {
-         let res = await fetch("http://localhost/3WA FINAL/PHP REST API BACK/api/post/registerUser.php", {
+         let res = await fetch("https://my-ez-meal.herokuapp.com/api/post/registerUser.php", {
             method: "POST",
             body: JSON.stringify({
                username: username,
