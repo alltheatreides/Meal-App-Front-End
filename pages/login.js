@@ -43,7 +43,7 @@ const Login = () => {
             username: username,
             pwd: password,
          }
-         const response = await axios.post('http://localhost/3WA FINAL/PHP REST API BACK/api/post/loginUser.php', data, {
+         const response = await axios.post('https://my-ez-meal.herokuapp.com/api/post/loginUser.php', data, {
             headers: { 
                'Content-Type': 'application/json',
             },
