@@ -43,27 +43,21 @@ const Login = () => {
             username: username,
             pwd: password,
          }
-         const response = await axios.post('https://my-ez-meal.herokuapp.com/api/post/loginUser.php', data, {
+         const response = await axios.post('http://localhost/3WA FINAL/PHP REST API BACK/api/post/loginUser.php', data, {
             headers: { 
                'Content-Type': 'application/json',
-               "Access-Control-Allow-Origin": "*",
-            },
-            // withCredentials: true,
-            // credentials: 'same-origin',
-            auth: {
-               username: getCookie("mealAppUser"),
-               password: getCookie("mealAppHash")
             },
          });
          if (response.status === 200) {
             setUsername("");
             setPassword("")
-            setCookies("mealAppUser", response.user_name, 60);
-            setCookies("mealAppHash", response.hash, 60);
+            // console.log(response)
+            setCookies("mealAppUser", response.data.user_name, 60);
+            setCookies("mealAppHash", response.data.hash, 60);
             router.push("/")
          } else {
             // console.log(resJson)
-            // setMessage(response);
+            setMessage(response.data);
          }
       } catch (err) {
          console.log(err);
