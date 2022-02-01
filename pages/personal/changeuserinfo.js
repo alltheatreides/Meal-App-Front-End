@@ -2,6 +2,7 @@ import axios from "axios";
 import { getCookie, setCookies } from "cookies-next";
 import { useEffect, useState } from "react";
 import PersonalMenu from "../../components/PersonalMenu";
+import host from "../../util/host.config";
 
 const ChangeUserInfo = () => {
 
@@ -29,7 +30,7 @@ const ChangeUserInfo = () => {
             rPwd: rpassword,
          }
 
-         const response = await axios.put('https://my-ez-meal.herokuapp.com/api/post/updateUser.php', data, {
+         const response = await axios.put(`${host}api/post/updateUser.php`, data, {
             headers: { 'Content-Type': 'application/json' },
             auth: {
                username: getCookie("mealAppUser"),
@@ -51,7 +52,7 @@ const ChangeUserInfo = () => {
          setMessage(err)
       }
       // try {
-      //    let res = await fetch("https://my-ez-meal.herokuapp.com/api/post/updateUser.php", {
+      //    let res = await fetch(`${host}api/post/updateUser.php`, {
       //       method: "PUT",
       //       credentials: 'include',
       //       mode: 'cors',

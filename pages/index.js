@@ -6,6 +6,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { AnimatePresence, motion } from 'framer-motion';
+import host from '../util/host.config';
 
 export default function Home() {
 
@@ -18,7 +19,7 @@ export default function Home() {
 
   let getMeals = async (e) => {
     try {
-      const response = await axios.get('https://my-ez-meal.herokuapp.com/api/post/readMeals.php', {
+      const response = await axios.get(`${host}api/post/readMeals.php`, {
         headers: { 'Content-Type': 'application/json' },
       });
 
@@ -159,7 +160,7 @@ export default function Home() {
                 ? (
                   <div className='min-h-[20rem] md:min-h-[40rem] lg:min-h-full h-full grid content-end relative overflow-hidden'>
                       <img
-                        src={`https://my-ez-meal.herokuapp.com/upload/images/${data[randomMealNumber].image}`}
+                        src={`${host}upload/images/${data[randomMealNumber].image}`}
                         alt={data[randomMealNumber].title}
                         className="absolute inset-0 -z-10 rounded-lg opacity-80 min-h-full"
                       />

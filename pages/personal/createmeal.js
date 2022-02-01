@@ -4,6 +4,7 @@ import axios from "axios";
 import PersonalSpaceLayout from "../../layouts/PersonalSpaceLayout";
 import Link from "next/link";
 import PersonalMenu from "../../components/PersonalMenu";
+import host from "../../util/host.config";
 
 const CreateMeal = () => {
 
@@ -30,7 +31,7 @@ const CreateMeal = () => {
             cookie: getCookie("mealAppHash"),
          }
 
-         const response = await axios.post('https://my-ez-meal.herokuapp.com/api/post/createMeal.php', data, {
+         const response = await axios.post(`${host}api/post/createMeal.php`, data, {
             headers: { 'Content-Type': 'application/json' },
             auth: {
                username: getCookie("mealAppUser"),

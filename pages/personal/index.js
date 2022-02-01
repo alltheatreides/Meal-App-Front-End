@@ -5,6 +5,8 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { getCookie } from "cookies-next";
+import host from "../../util/host.config";
+
 
 const Personal = () => {
    // Next Page management
@@ -35,16 +37,17 @@ const Personal = () => {
    // GET
    async function getMealsByUser(e) {
       try {
-         const response = await axios.get('https://my-ez-meal.herokuapp.com/api/post/readMealsCreated.php', {
+         const response = await axios.get(`${host}api/post/readMealsCreated.php`, {
             headers: { 'Content-Type': 'application/json' },
             auth: {
                username: getCookie("mealAppUser"),
                password: getCookie("mealAppHash")
             },
          });
-
+         console.log(response.data)
          const meals = await response.data
          setData(meals)
+         console.log(data)
 
       } catch (e) {
          console.log(e)
@@ -64,7 +67,7 @@ const Personal = () => {
          formData.append("meal_name", e.target.platimage.name);
          formData.append("plat-image", selectedFile);
 
-         const response = await axios.post('https://my-ez-meal.herokuapp.com/api/post/uploadPicture.php', formData, {
+         const response = await axios.post(`${host}api/post/uploadPicture.php`, formData, {
             headers: { 'Content-Type': 'multipart/form-data' },
             auth: {
                username: getCookie("mealAppUser"),
@@ -84,7 +87,7 @@ const Personal = () => {
    // Use Effect Hooks: launches the api data request and refreshes the DOM when data is received
    useEffect(() => {
       getMealsByUser()
-   }, [setData, postMealPicture]);
+   }, [setData]);
 
 
    return (
@@ -107,12 +110,13 @@ const Personal = () => {
                <div className="w-full">
                   <h2 className="text-center lg:text-left lg:ml-16 text-xl md:text-2xl lg:text-4xl uppercase font-light mt-4 md:mt-6 lg:mt-10">Liste des plats créés</h2>
                   <ul className="lg:w-4/5 md:p-10 mt-4 md:mt-0 mx-6 grid md:grid-cols-2 gap-6 mb-6">
-                     {data == null
-                        ? <p>Loading...</p>
-                        : data.map((meal, key) => (
+                     {data == null && <p>Loading...</p>
+                        
+                     || data != null && <p>{data.message}</p>
+                     || data != null && Array.isArray(data) && data.map((meal, key) => (
                            <li key={key} className='min-h-[20rem] md:min-h-[20rem] lg:min-h-[30rem] h-full mb-4 grid content-end relative overflow-hidden'>
                               <img
-                                 src={`https://my-ez-meal.herokuapp.com/upload/images/${meal.image}`}
+                                 src={`${host}upload/images/${meal.image}`}
                                  alt={meal.title}
                                  className="absolute inset-0 -z-10 rounded-lg opacity-80 min-h-full"
                               />

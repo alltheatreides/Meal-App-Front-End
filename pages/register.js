@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { AnimatePresence, motion } from 'framer-motion';
 import Head from 'next/head'
+import host from "../util/host.config";
 
 const Register = () => {
 
@@ -26,7 +27,7 @@ const Register = () => {
    let handleSubmit = async (e) => {
       e.preventDefault();
       try {
-         let res = await fetch("https://my-ez-meal.herokuapp.com/api/post/registerUser.php", {
+         let res = await fetch(`${host}api/post/registerUser.php`, {
             method: "POST",
             body: JSON.stringify({
                username: username,
